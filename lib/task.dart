@@ -72,3 +72,25 @@ class Dog extends Animal {
 
   Dog(super.name, this.breed);
 }
+
+// Q5:
+abstract class Shape {
+  double area();
+}
+
+class Rectangle extends Shape {
+  double width;
+  double height;
+  Rectangle(this.height, this.width);
+
+  @override
+  double area() => width * height;
+}
+
+class Circle extends Shape {
+  double radius;
+  Circle(this.radius);
+
+  @override
+  double area() => 3.14 * radius * radius;
+}
