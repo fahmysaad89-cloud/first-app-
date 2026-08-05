@@ -2,6 +2,8 @@
 import 'dart:math';
 import 'dart:nativewrappers/_internal/vm/lib/internal_patch.dart';
 
+import 'package:flutter/material.dart';
+
 class BankAccount {
   double _balance = 0;
   void deposit(double amount) {
@@ -114,5 +116,26 @@ class Developer extends Employee {
   @override
   void work() {
     print("iam coding....");
+  }
+}
+
+// Q7:
+abstract class Flyable {
+  void fly();
+}
+
+abstract class Swimmable {
+  void swim();
+}
+
+class Duck implements Swimmable, Flyable {
+  @override
+  void fly() {
+    print("Duck is flying");
+  }
+
+  @override
+  void swim() {
+    print("Duck is swimming");
   }
 }
