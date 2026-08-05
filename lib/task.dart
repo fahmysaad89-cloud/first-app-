@@ -139,3 +139,33 @@ class Duck implements Swimmable, Flyable {
     print("Duck is swimming");
   }
 }
+
+// Q8:
+abstract class Drawable {
+  void draw();
+  String getColor();
+}
+
+class Square implements Drawable {
+  @override
+  void draw() {
+    print("Drawing Square");
+  }
+
+  @override
+  String getColor() {
+    return "red";
+  }
+}
+
+class Triangle implements Drawable {
+  @override
+  void draw() {
+    print("Drawing Triangle");
+  }
+
+  @override
+  String getColor() {
+    return "black";
+  }
+}
