@@ -1,5 +1,6 @@
 // Q1:
 import 'dart:math';
+import 'dart:nativewrappers/_internal/vm/lib/internal_patch.dart';
 
 class BankAccount {
   double _balance = 0;
@@ -34,4 +35,27 @@ class Student {
 
   String get name => _name;
   double get garade => _grade;
+}
+
+// Q3:
+class Vehicle {
+  String brand;
+  double speed;
+
+  Vehicle(this.brand, this.speed);
+
+  void describe() {
+    print("Brand: $brand, Speed: $speed");
+  }
+}
+
+class Car extends Vehicle {
+  int doors;
+
+  Car(super.brand, super.speed, this.doors);
+  @override
+  void describe() {
+    super.describe();
+    print("Doors$doors");
+  }
 }
