@@ -59,3 +59,16 @@ class Car extends Vehicle {
     print("Doors$doors");
   }
 }
+
+// Q4:
+class Animal {
+  String name;
+
+  Animal(this.name);
+}
+
+class Dog extends Animal {
+  String breed;
+
+  Dog(super.name, this.breed);
+}
