@@ -94,3 +94,25 @@ class Circle extends Shape {
   @override
   double area() => 3.14 * radius * radius;
 }
+
+// Q6:
+abstract class Employee {
+  String name;
+  double salary;
+
+  Employee(this.name, this.salary);
+  void work();
+
+  void introduce() {
+    print("My name is $name");
+  }
+}
+
+class Developer extends Employee {
+  Developer(super.name, super.salary);
+
+  @override
+  void work() {
+    print("iam coding....");
+  }
+}
