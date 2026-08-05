@@ -4,6 +4,7 @@ import 'dart:nativewrappers/_internal/vm/lib/internal_patch.dart';
 
 import 'package:flutter/material.dart';
 
+// Q1:
 class BankAccount {
   double _balance = 0;
   void deposit(double amount) {
@@ -168,4 +169,39 @@ class Triangle implements Drawable {
   String getColor() {
     return "black";
   }
+}
+
+// Q9:
+class Counter {
+  int _count = 0;
+  // Counter(this._count);
+  void increment() {
+    _count++;
+  }
+
+  void decrement() {
+    if (_count > 0) {
+      _count--;
+    }
+  }
+
+  void reset() {
+    _count = 0;
+  }
+
+  int get count => _count;
+}
+
+void main() {
+  Counter c = Counter();
+  c.increment();
+  c.increment();
+  c.increment();
+  print(c.count); //3
+
+  c.decrement();
+  print(c.count); //2
+
+  c.reset();
+  print(c.count); //0
 }
