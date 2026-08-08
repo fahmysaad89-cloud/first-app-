@@ -1,207 +1,204 @@
-// Q1:
-import 'dart:math';
-import 'dart:nativewrappers/_internal/vm/lib/internal_patch.dart';
-
 import 'package:flutter/material.dart';
 
-// Q1:
-class BankAccount {
-  double _balance = 0;
-  void deposit(double amount) {
-    _balance += amount;
-  }
-
-  void withdraw(double amount) {
-    if (_balance - amount >= 0) {
-      _balance -= amount;
-    } else {
-      print('Insufficient balance');
-    }
-  }
-
-  double get balance => _balance;
-}
-
-// Q2:
-class Student {
-  String _name;
-  double _grade;
-  Student(this._name, this._grade);
-
-  set grade(double value) {
-    if (value >= 0 && value <= 100) {
-      _grade = value;
-    } else {
-      print("Invalid grade");
-    }
-  }
-
-  String get name => _name;
-  double get garade => _grade;
-}
-
-// Q3:
-class Vehicle {
-  String brand;
-  double speed;
-
-  Vehicle(this.brand, this.speed);
-
-  void describe() {
-    print("Brand: $brand, Speed: $speed");
-  }
-}
-
-class Car extends Vehicle {
-  int doors;
-
-  Car(super.brand, super.speed, this.doors);
+class MyCard extends StatelessWidget {
   @override
-  void describe() {
-    super.describe();
-    print("Doors$doors");
+  Widget build(BuildContext context) {
+    return MaterialApp(home: BusinessCard(), debugShowCheckedModeBanner: false);
   }
 }
 
-// Q4:
-class Animal {
-  String name;
-
-  Animal(this.name);
-}
-
-class Dog extends Animal {
-  String breed;
-
-  Dog(super.name, this.breed);
-}
-
-// Q5:
-abstract class Shape {
-  double area();
-}
-
-class Rectangle extends Shape {
-  double width;
-  double height;
-  Rectangle(this.height, this.width);
-
+class BusinessCard extends StatelessWidget {
   @override
-  double area() => width * height;
-}
-
-class Circle extends Shape {
-  double radius;
-  Circle(this.radius);
-
-  @override
-  double area() => 3.14 * radius * radius;
-}
-
-// Q6:
-abstract class Employee {
-  String name;
-  double salary;
-
-  Employee(this.name, this.salary);
-  void work();
-
-  void introduce() {
-    print("My name is $name");
+  Widget build(BuildContext context) {
+    return Scaffold(
+      backgroundColor: const Color.fromARGB(255, 74, 76, 77),
+      appBar: AppBar(
+        backgroundColor: const Color.fromARGB(255, 32, 218, 224),
+        title: Text(
+          "I Dont Need To Make Full AppBar.",
+          style: TextStyle(color: Colors.deepOrange),
+        ),
+      ),
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Container(
+              width: 200,
+              height: 200,
+              // color: Colors.blueGrey,
+              decoration: BoxDecoration(
+                // color: Colors.blue,
+                shape: .circle,
+                image: .new(image: AssetImage("images/1.jpeg")),
+                border: BoxBorder.all(color: Colors.greenAccent, width: 2),
+              ),
+            ),
+            SizedBox(height: 10),
+            Text(
+              "Saad fahmy",
+              style: TextStyle(
+                color: Colors.blue,
+                fontSize: 34,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+            Text(
+              "Flutter Developer",
+              style: TextStyle(
+                color: Colors.cyanAccent,
+                fontSize: 18,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+            Divider(
+              thickness: 2,
+              height: 40,
+              color: const Color.fromARGB(255, 231, 199, 156),
+              indent: 100,
+              endIndent: 100,
+            ),
+            SizedBox(height: 3),
+            Container(
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(20),
+                color: Colors.blueGrey,
+              ),
+              margin: EdgeInsets.symmetric(vertical: 3, horizontal: 25),
+              padding: EdgeInsets.all(30),
+              // color: Colors.blueGrey,
+              child: Row(
+                children: [
+                  Container(
+                    width: 50,
+                    height: 50,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(40),
+                      border: Border.all(
+                        width: 2,
+                        color: const Color.fromARGB(255, 35, 230, 67),
+                      ),
+                    ),
+                    child: Icon(
+                      Icons.phone,
+                      color: const Color.fromARGB(255, 47, 228, 56),
+                      size: 30,
+                    ),
+                  ),
+                  SizedBox(width: 20),
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        "01223730129",
+                        style: TextStyle(
+                          fontSize: 18,
+                          color: Colors.white,
+                          fontWeight: .bold,
+                        ),
+                      ),
+                      Text(
+                        "phone",
+                        style: TextStyle(fontSize: 18, color: Colors.white),
+                      ),
+                    ],
+                  ),
+                ],
+              ),
+            ),
+            // SizedBox(width: 10),
+            Container(
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(20),
+                color: Colors.blueGrey,
+              ),
+              margin: EdgeInsets.symmetric(vertical: 5, horizontal: 25),
+              padding: EdgeInsets.all(30),
+              child: Row(
+                children: [
+                  Container(
+                    width: 50,
+                    height: 50,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(40),
+                      border: Border.all(width: 2, color: Colors.cyan),
+                    ),
+                    child: Icon(
+                      Icons.email,
+                      color: Colors.tealAccent,
+                      size: 30,
+                    ),
+                  ),
+                  SizedBox(width: 20),
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        "fahmysaad89@gmail.com",
+                        style: TextStyle(
+                          fontSize: 18,
+                          color: Colors.white,
+                          fontWeight: .bold,
+                        ),
+                      ),
+                      Text(
+                        "email",
+                        style: TextStyle(fontSize: 18, color: Colors.white),
+                      ),
+                    ],
+                  ),
+                ],
+              ),
+            ),
+            Container(
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(20),
+                color: Colors.blueGrey,
+              ),
+              margin: EdgeInsets.symmetric(vertical: 5, horizontal: 25),
+              padding: EdgeInsets.all(30),
+              child: Row(
+                children: [
+                  Container(
+                    width: 50,
+                    height: 50,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(40),
+                      border: Border.all(
+                        width: 2,
+                        color: const Color.fromARGB(255, 107, 224, 96),
+                      ),
+                    ),
+                    child: Icon(
+                      Icons.location_on,
+                      color: const Color.fromARGB(255, 175, 230, 112),
+                      size: 30,
+                    ),
+                  ),
+                  SizedBox(width: 20),
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        "Mnofia ,Egypt",
+                        style: TextStyle(
+                          fontSize: 18,
+                          color: Colors.white,
+                          fontWeight: .bold,
+                        ),
+                      ),
+                      Text(
+                        "Location",
+                        style: TextStyle(color: Colors.white, fontSize: 18),
+                      ),
+                    ],
+                  ),
+                ],
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
   }
-}
-
-class Developer extends Employee {
-  Developer(super.name, super.salary);
-
-  @override
-  void work() {
-    print("iam coding....");
-  }
-}
-
-// Q7:
-abstract class Flyable {
-  void fly();
-}
-
-abstract class Swimmable {
-  void swim();
-}
-
-class Duck implements Swimmable, Flyable {
-  @override
-  void fly() {
-    print("Duck is flying");
-  }
-
-  @override
-  void swim() {
-    print("Duck is swimming");
-  }
-}
-
-// Q8:
-abstract class Drawable {
-  void draw();
-  String getColor();
-}
-
-class Square implements Drawable {
-  @override
-  void draw() {
-    print("Drawing Square");
-  }
-
-  @override
-  String getColor() {
-    return "red";
-  }
-}
-
-class Triangle implements Drawable {
-  @override
-  void draw() {
-    print("Drawing Triangle");
-  }
-
-  @override
-  String getColor() {
-    return "black";
-  }
-}
-
-// Q9:
-class Counter {
-  int _count = 0;
-  // Counter(this._count);
-  void increment() {
-    _count++;
-  }
-
-  void decrement() {
-    if (_count > 0) {
-      _count--;
-    }
-  }
-
-  void reset() {
-    _count = 0;
-  }
-
-  int get count => _count;
-}
-
-void main() {
-  Counter c = Counter();
-  c.increment();
-  c.increment();
-  c.increment();
-  print(c.count); //3
-
-  c.decrement();
-  print(c.count); //2
-
-  c.reset();
-  print(c.count); //0
 }
